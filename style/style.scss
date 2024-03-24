@@ -25,6 +25,7 @@
     scale: 1;
     transition: 0.252s;
     overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
     &::before{
         content: '';
         z-index: -1;
@@ -61,7 +62,7 @@ $font-size: 40px;
     padding: 10px;
     margin:1% auto 0 auto;
     gap: 10px;
-    width:65vh ;
+    width:90% ;
     box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.133),
     0px 7px 10px 0px rgba(0, 0, 0, 0.133) inset ;
 
@@ -123,7 +124,7 @@ $font-size: 40px;
             opacity: 0.7;
         }
     }
-    .operators-c{
+    .clear-btn{
         background-color: #FF0060;
     }
 }
@@ -136,6 +137,11 @@ margin: 7px auto 10px auto;
     border-radius: 10px;
     padding: 5px 0;
     font-size: $font-size;
+    input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
     input{
         width: 80%;
         font-size: $font-size;
@@ -251,7 +257,7 @@ top: 0;
         height: 11vh;
 }
 
-.resault{
+.result{
     top: 0;
     position: absolute;
     font-size: $font-size;
@@ -267,6 +273,6 @@ top: 0;
    }
     }
 }
-.resault-small{
+.result-small{
     font-size: 27px;
 }
