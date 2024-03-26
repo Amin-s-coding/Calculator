@@ -20,7 +20,7 @@ operators.forEach((e)=>{
         screen.value += e.textContent
     })
 })
-
+const history = [];
 // equal
 
 function total() {
