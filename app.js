@@ -9,7 +9,7 @@ const equal = document.querySelector('.equal');
 const historyBtn = document.querySelector('.history-btn');
 const coloseBtn = document.querySelector('.close-panel-btn');
 const HistoryPanel = document.querySelector('.history-panel'); 
-
+const getItems = document.querySelectorAll('.item');
 getNumbers.map(e=>{
     e.addEventListener('click', ()=>{
         screen.value += e.textContent;
@@ -25,7 +25,7 @@ const history = [];
 
 function total() {
    parseFloat(secondScreen.textContent = screen.value);
-    screen.value = '';
+    screen.value = secondScreen.textContent;
 }
 
 equal.addEventListener('click', total)
