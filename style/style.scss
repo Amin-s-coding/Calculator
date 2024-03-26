@@ -2,6 +2,9 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
         box-sizing: border-box;
 }
+body{
+    background-color: cyan;
+}
 @mixin btns{
     font-size: 40px;
     font-weight: light;
