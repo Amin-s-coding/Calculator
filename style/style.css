@@ -3,10 +3,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: cyan;
-}
-
 .calculator {
   position: relative;
   border-radius: 15px;
