@@ -18,26 +18,13 @@ getNumbers.map(e=>{
     });
 });
 
-const plus = operators[0];
-const minus = operators[1];
-const multiply = operators[2];
-const divide = operators[3];
+operators.forEach(e=>{
+    e.addEventListener('click', ()=>{
+        screen.value += e.textContent;
+    })
+})
 
-plus.addEventListener('click', ()=>{
-    screen.value += '+';
-});
 
-minus.addEventListener('click', ()=>{
-    screen.value += '-';
-});
-
-multiply.addEventListener('click', ()=>{
-    screen.value += '*';
-}); 
-
-divide.addEventListener('click', ()=>{
-    screen.value += '/'; 
-});
 
 // equal
 function total() {
