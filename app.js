@@ -4,7 +4,6 @@ const operators =  [...document.querySelectorAll('.operators-btn')];
 const clear = document.querySelector('.clear-btn');
 const secondScreen = document.querySelector('.second-screen');
 const screen = document.querySelector('#screen');
-// const operatorsScreen = document.querySelector('.operators-screen');
 const equal = document.querySelector('.equal');
 const historyBtn = document.querySelector('.history-btn');
 const coloseBtn = document.querySelector('.close-panel-btn');
@@ -24,8 +23,6 @@ operators.forEach(e=>{
     })
 })
 
-
-
 // equal
 function total() {
   const result = eval(screen.value);
@@ -36,6 +33,7 @@ equal.addEventListener('click', total);
 clear.addEventListener('click', ()=>{
   screen.value = "";
   secondScreen.textContent = "";
+  equal.classList.add('.result')
 })
 
 // Function to set input filter

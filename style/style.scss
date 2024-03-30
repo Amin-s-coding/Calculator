@@ -1,6 +1,9 @@
 *{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-        box-sizing: border-box;
+}
+body{
+    background: linear-gradient(to top, #C4E4FF , rgb(255, 255, 255) ) no-repeat;
+    padding: 8px;
 }
 @mixin btns{
     font-size: 40px;
@@ -65,7 +68,29 @@ $font-size: 40px;
     width:70vh ;
     box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.133),
     0px 7px 10px 0px rgba(0, 0, 0, 0.133) inset ;
+    background-color: rgba(255, 255, 255, 0.808);
+    backdrop-filter: blur(30px);
 }
+#b-1{
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    width: 40vh;
+    height: 40vh;
+    border-radius: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    background-color: #41C9E2;}
+    #b-2{
+        position: absolute;
+        bottom: 10%;
+        right: 20%;
+        width: 40vh;
+        height: 40vh;
+        border-radius: 100vh;
+        pointer-events: none;
+        z-index: -1;
+        background-color: #FAA300;}
 .dial-pad{
     display: grid;
     margin: 10px;
@@ -84,7 +109,8 @@ $font-size: 40px;
         @include animation-btn(100px);
         cursor: pointer;
         font-size: 40px;
-        background-color: rgba(227, 227, 227, 0.445);
+        background-color: rgb(241, 243, 255);
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.258);
         border: none;
         border-radius: 100px;
         margin: 5px;
@@ -92,10 +118,9 @@ $font-size: 40px;
         width:100px;
         scale: 1;
         &:hover{
-            background-color: rgba(213, 213, 213, 0.581);
+            background-color: rgba(237, 237, 237, 0.741);
         }
     }
-
 
 .operators{
     grid-column-start: 2;
@@ -136,29 +161,40 @@ margin: 7px auto 10px auto;
     border-radius: 10px;
     padding: 5px 0;
     font-size: $font-size;
-    input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
     input{
         width: 80%;
         font-size: $font-size;
-        border: none;
+        border: 2px solid #0079FF;
         outline: none;
         background-color: rgb(238, 238, 238);
         border-radius: 14px;
         padding: 10px 20px;
+        background-color: rgb(241, 243, 255);
     }
-    .operators-screen{
-        width: 20%;
-        padding: 5px 0;
-        margin: 0 10px  0 0;
-        font-size: $font-size;
-        text-align: center;
-        background-color: rgb(238, 238, 238);
-        border-radius: 14px;
+}
+
+.tottal-screen{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+}
+.second-screen{
+    position: absolute;
+    animation: resultAnimate;
+    animation-duration: 0.5s;
+    animation-delay: 0ms;
+    color: #00DFA2;
+    font-weight: bold;
+@keyframes resultAnimate {
+    0%{
+        top: -20px;
     }
+    100%{
+        top: -0px;
+    }
+}
+}
     .history-btn{
         cursor: pointer;
         width: 20%;
@@ -175,11 +211,11 @@ input::-webkit-inner-spin-button {
         svg{
             width: 30px;
             height: 30px;
-            fill: white;
+            fill: rgb(255, 255, 255);
         }
     }
     
-}
+
 
 
 .history-panel{
