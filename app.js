@@ -1,6 +1,6 @@
 
 const getNumbers = [...document.querySelectorAll('.number')];
-const operators = document.querySelectorAll('.operators-btn');
+const operators =  [...document.querySelectorAll('.operators-btn')];
 const clear = document.querySelector('.clear-btn');
 const secondScreen = document.querySelector('.second-screen');
 const screen = document.querySelector('#screen');
@@ -10,31 +10,46 @@ const historyBtn = document.querySelector('.history-btn');
 const coloseBtn = document.querySelector('.close-panel-btn');
 const HistoryPanel = document.querySelector('.history-panel'); 
 const getItems = document.querySelectorAll('.item');
+
+
 getNumbers.map(e=>{
     e.addEventListener('click', ()=>{
-        screen.value += e.textContent;
+        screen.value += Number(e.textContent);
     });
 });
-operators.forEach((e)=>{
-    e.addEventListener('click', ()=>{
-        screen.value += e.textContent
-    })
-})
+
+const plus = operators[0];
+const minus = operators[1];
+const multiply = operators[2];
+const divide = operators[3];
+
+plus.addEventListener('click', ()=>{
+    screen.value += '+';
+});
+
+minus.addEventListener('click', ()=>{
+    screen.value += '-';
+});
+
+multiply.addEventListener('click', ()=>{
+    screen.value += '*';
+}); 
+
+divide.addEventListener('click', ()=>{
+    screen.value += '/'; 
+});
 
 // equal
-
 function total() {
-   parseFloat(secondScreen.textContent = screen.value);
-    screen.value = secondScreen.textContent;
+  const result = eval(screen.value);
+  secondScreen.textContent = result;
 }
 
-equal.addEventListener('click', total)
-
-// document.addEventListener('keydown', (event)=>{
-//     if(event.key === 'Enter'){
-//     console.log('hooray')
-//     }
-// })
+equal.addEventListener('click', total);
+clear.addEventListener('click', ()=>{
+  screen.value = "";
+  secondScreen.textContent = "";
+})
 
 // Function to set input filter
 function setInputFilter(textbox, inputFilter, errMsg) {
