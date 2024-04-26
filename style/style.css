@@ -13,9 +13,9 @@ body {
   padding: 10px;
   margin: 1% auto 0 auto;
   gap: 10px;
-  width: 70vh;
+  width: 100%;
   box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.133), 0px 7px 10px 0px rgba(0, 0, 0, 0.133) inset;
-  background-color: rgba(255, 255, 255, 0.808);
+  background-color: rgba(255, 255, 255, 0.621);
   -webkit-backdrop-filter: blur(30px);
           backdrop-filter: blur(30px);
 }
@@ -29,6 +29,7 @@ body {
   border-radius: 100vh;
   pointer-events: none;
   z-index: -1;
+  filter: blur(30PX);
   background-color: #41C9E2;
 }
 
@@ -41,6 +42,7 @@ body {
   border-radius: 100vh;
   pointer-events: none;
   z-index: -1;
+  filter: blur(30PX);
   background-color: #FAA300;
 }
 
@@ -273,7 +275,7 @@ body {
   left: 0;
   bottom: 0;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.859);
+  background-color: rgba(255, 255, 255, 0.255);
   -webkit-backdrop-filter: blur(17px);
           backdrop-filter: blur(17px);
   z-index: 1;
@@ -286,14 +288,11 @@ body {
 @keyframes history {
   0% {
     opacity: 0.1;
-    width: 100%;
     height: 0;
     top: 40px;
   }
   100% {
     opacity: 1;
-    width: 100%;
-    height: 100%;
   }
 }
 .open-history {
@@ -302,6 +301,10 @@ body {
 
 .close-history {
   display: none;
+}
+
+.delete-item {
+  background-color: red;
 }
 
 .history-item {

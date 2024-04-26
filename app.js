@@ -7,8 +7,7 @@ const screen = document.querySelector('#screen');
 const equal = document.querySelector('.equal');
 const historyBtn = document.querySelector('.history-btn');
 const coloseBtn = document.querySelector('.close-panel-btn');
-const HistoryPanel = document.querySelector('.history-panel'); 
-const getItems = document.querySelectorAll('.item');
+const historyPanel = document.querySelector('.history-panel')
 
 
 getNumbers.map(e=>{
@@ -27,14 +26,34 @@ operators.forEach(e=>{
 function total() {
   const result = eval(screen.value);
   secondScreen.textContent = result;
-}
+  localStorage.setItem('store',`${screen.value} = ${secondScreen.textContent}`);
+  const historyAdd = document.createElement('div');
+  historyAdd.classList.add('history-item');
+  historyAdd.textContent = localStorage.getItem('store');
+  historyPanel.appendChild(historyAdd);
+  const deleteHistory = document.createElement('button');
+  deleteHistory.setAttribute('class','delete-item');
+  deleteHistory.textContent = 'x';
+  historyAdd.appendChild(deleteHistory);
+     deleteHistory.addEventListener('click', ()=>{
+    historyPanel.removeChild(historyAdd);
+  })
+};
+
 
 equal.addEventListener('click', total);
-clear.addEventListener('click', ()=>{
-  screen.value = "";
-  secondScreen.textContent = "";
-  equal.classList.add('.result')
-})
+
+
+// clear.addEventListener('click', ()=>{
+//   // screen.value = "";
+//   let resultText = localStorage.setItem('screen', screen.value);
+//   if(secondScreen.textContent.length > 0){
+//     historyItem.innerHTML = resultText;
+//     };
+//     // secondScreen.textContent = "";
+// })
+
+
 
 // Function to set input filter
 function setInputFilter(textbox, inputFilter, errMsg) {
