@@ -6,8 +6,8 @@ const secondScreen = document.querySelector('.second-screen');
 const screen = document.querySelector('#screen');
 const equal = document.querySelector('.equal');
 const historyBtn = document.querySelector('.history-btn');
-const coloseBtn = document.querySelector('.close-panel-btn');
-const historyPanel = document.querySelector('.history-panel')
+const colosBtn = document.querySelector('.close-panel-btn');
+const historyPanel = document.querySelector('.history-panel');
 
 
 getNumbers.map(e=>{
@@ -27,6 +27,9 @@ function total() {
   const result = eval(screen.value);
   secondScreen.textContent = result;
   localStorage.setItem('store',`${screen.value} = ${secondScreen.textContent}`);
+  addHistoryItem()
+};
+function addHistoryItem (){
   const historyAdd = document.createElement('div');
   historyAdd.classList.add('history-item');
   historyAdd.textContent = localStorage.getItem('store');
@@ -38,20 +41,22 @@ function total() {
      deleteHistory.addEventListener('click', ()=>{
     historyPanel.removeChild(historyAdd);
   })
-};
+}
 
+historyBtn.addEventListener('click', ()=>{
+  historyPanel.style.display = 'block';
+});
+colosBtn.addEventListener('click', ()=>{
+  historyPanel.style.display = 'none';
+})
 
 equal.addEventListener('click', total);
 
 
-// clear.addEventListener('click', ()=>{
-//   // screen.value = "";
-//   let resultText = localStorage.setItem('screen', screen.value);
-//   if(secondScreen.textContent.length > 0){
-//     historyItem.innerHTML = resultText;
-//     };
-//     // secondScreen.textContent = "";
-// })
+clear.addEventListener('click', ()=>{
+  screen.value = "";
+    secondScreen.textContent = "";
+})
 
 
 

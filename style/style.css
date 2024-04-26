@@ -1,5 +1,5 @@
 * {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: IRANSans;
 }
 
 body {
@@ -7,17 +7,22 @@ body {
   padding: 8px;
 }
 
+@font-face {
+  font-family: IRANSans;
+  src: url(IRANSans_Medium.ttf);
+}
 .calculator {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   border-radius: 15px;
   padding: 10px;
   margin: 1% auto 0 auto;
   gap: 10px;
-  width: 100%;
+  width: 500px;
   box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.133), 0px 7px 10px 0px rgba(0, 0, 0, 0.133) inset;
   background-color: rgba(255, 255, 255, 0.621);
-  -webkit-backdrop-filter: blur(30px);
-          backdrop-filter: blur(30px);
 }
 
 #b-1 {
@@ -190,30 +195,6 @@ body {
   background-color: rgb(241, 243, 255);
 }
 
-.tottal-screen {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  position: relative;
-}
-
-.second-screen {
-  position: absolute;
-  animation: resultAnimate;
-  animation-duration: 0.5s;
-  animation-delay: 0ms;
-  color: #00DFA2;
-  font-weight: bold;
-}
-@keyframes resultAnimate {
-  0% {
-    top: -20px;
-  }
-  100% {
-    top: 0px;
-  }
-}
-
 .history-btn {
   cursor: pointer;
   width: 20%;
@@ -267,17 +248,16 @@ body {
 .history-panel {
   border: none;
   position: absolute;
-  width: 100%;
+  width: 500px;
   padding: 10px;
-  height: 100%;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.255);
-  -webkit-backdrop-filter: blur(17px);
-          backdrop-filter: blur(17px);
+  background-color: rgba(255, 255, 255, 0.545);
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
   z-index: 1;
   animation-name: history;
   animation-duration: 0.4s;
@@ -287,7 +267,7 @@ body {
 
 @keyframes history {
   0% {
-    opacity: 0.1;
+    opacity: 0;
     height: 0;
     top: 40px;
   }
@@ -295,14 +275,6 @@ body {
     opacity: 1;
   }
 }
-.open-history {
-  display: block;
-}
-
-.close-history {
-  display: none;
-}
-
 .delete-item {
   background-color: red;
 }
@@ -322,7 +294,19 @@ body {
   top: 0;
 }
 
-.close-panel-btn {
+.history-header {
+  background-color: rgba(176, 176, 176, 0.262);
+  position: sticky;
+  display: flex;
+  justify-content: space-between;
+  top: 0;
+  right: 0;
+  left: 0;
+  border-radius: 17px;
+  padding: 10px;
+  text-align: right;
+}
+.history-header .close-panel-btn {
   font-size: 40px;
   font-weight: light;
   width: 70px;
@@ -335,30 +319,29 @@ body {
   border-radius: 10px;
   cursor: pointer;
 }
-.close-panel-btn:hover {
+.history-header .close-panel-btn:hover {
   background-color: rgba(177, 177, 177, 0.337254902);
 }
-.close-panel-btn:active {
+.history-header .close-panel-btn:active {
   scale: 0.85;
+}
+.history-header .history-title {
+  display: block;
+  font-size: 20px;
+  padding: 0 10px;
+  font-weight: light;
 }
 
 .second-screen {
+  color: #00DFA2;
+  font-weight: bold;
   margin: 0 auto 0px auto;
   width: 95%;
   font-size: 40px;
   border-radius: 20px;
-  display: flex;
   align-content: center;
   border-radius: 10px;
-  height: 10vh;
-  padding: 10px 14px;
-}
-
-.tottal-screen {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  height: 11vh;
+  padding: 5px 14px;
 }
 
 .result {

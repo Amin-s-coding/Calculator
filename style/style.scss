@@ -1,10 +1,14 @@
 *{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: IRANSans;
 }
 body{
     background: linear-gradient(to top, #C4E4FF , rgb(255, 255, 255) ) no-repeat;
     padding: 8px;
 }
+@font-face {
+    font-family: IRANSans;
+    src: url(IRANSans_Medium.ttf);
+  }
 @mixin btns{
     font-size: 40px;
     font-weight: light;
@@ -61,15 +65,18 @@ $primaryBtn:#0079FF;
 $font-size: 40px;
 .calculator{
     position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     border-radius: 15px;
     padding: 10px;
     margin:1% auto 0 auto;
     gap: 10px;
-    width:100% ;
+    width: 500px;
     box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.133),
     0px 7px 10px 0px rgba(0, 0, 0, 0.133) inset ;
     background-color: rgba(255, 255, 255, 0.621);
-    backdrop-filter: blur(30px);
+    // backdrop-filter: blur(30px);
 }
 #b-1{
     position: absolute;
@@ -174,28 +181,7 @@ margin: 7px auto 10px auto;
     }
 }
 
-.tottal-screen{
-    width: 100%;
-    margin: 0 auto;
-    padding: 0;
-    position: relative;
-}
-.second-screen{
-    position: absolute;
-    animation: resultAnimate;
-    animation-duration: 0.5s;
-    animation-delay: 0ms;
-    color: #00DFA2;
-    font-weight: bold;
-@keyframes resultAnimate {
-    0%{
-        top: -20px;
-    }
-    100%{
-        top: -0px;
-    }
-}
-}
+
     .history-btn{
         cursor: pointer;
         width: 20%;
@@ -218,16 +204,15 @@ margin: 7px auto 10px auto;
 .history-panel{
 border: none;
 position: absolute;
-width: 100%;
+width: 500px ;
 padding: 10px;
-height: 100%;
 top: 0;
 right: 0;
 left: 0;
 bottom: 0;
 border-radius: 20px;
-background-color: rgba(255, 255, 255, 0.255);
-backdrop-filter: blur(17px);
+background-color: rgba(255, 255, 255, 0.545);
+backdrop-filter: blur(20px);
 z-index: 1;
 animation-name: history;
 animation-duration: 0.4s;
@@ -236,19 +221,13 @@ display: none;
 }
 @keyframes history {
    0%{
-    opacity: 0.1;
+    opacity: 0;
     height: 0;
     top: 40px;
 } 
    100%{
     opacity: 1;
    }
-}
-.open-history{
-display: block;
-}
-.close-history{
-display: none;
 }
 .delete-item{
     background-color: red;
@@ -267,28 +246,41 @@ right: 0;
 top: 0;
     }
 }
-.close-panel-btn{
+
+.history-header{
+    background-color: rgba(176, 176, 176, 0.262);
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    right: 0;
+    left: 0;
+    border-radius: 17px;
+    padding: 10px;
+    text-align: right;
+    .close-panel-btn{
     @include btns();
+    }
+    .history-title{
+        display: block;
+        font-size: 20px;
+        padding: 0 10px;
+        font-weight: light;
+    }
 }
+
+
 .second-screen{
+    color: #00DFA2;
+    font-weight: bold;
     margin: 0 auto 0px auto;
     width: 95%;
     font-size: $font-size;
     border-radius: 20px;
-    display: flex;
     align-content: center;
     border-radius: 10px;
-    height: 10vh;
-    padding: 10px 14px;
+    padding: 5px 14px;
 }
-
-.tottal-screen{
-    position: relative;
-    display: block;
-        overflow: hidden;
-        height: 11vh;
-}
-
 .result{
     top: 0;
     position: absolute;
