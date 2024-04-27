@@ -27,21 +27,25 @@ function total() {
   const result = eval(screen.value);
   secondScreen.textContent = result;
   localStorage.setItem('store',`${screen.value} = ${secondScreen.textContent}`);
-  addHistoryItem()
-};
-function addHistoryItem (){
-  const historyAdd = document.createElement('div');
+  storeData()
+
+}
+function storeData() {
+  const historyAdd = document.createElement('div'); 
   historyAdd.classList.add('history-item');
   historyAdd.textContent = localStorage.getItem('store');
   historyPanel.appendChild(historyAdd);
   const deleteHistory = document.createElement('button');
-  deleteHistory.setAttribute('class','delete-item');
-  deleteHistory.textContent = 'x';
+  deleteHistory.appendChild(document.createElement('span'));
+  deleteHistory.setAttribute('class','fas fa-times');
+  deleteHistory.classList.add('delete-item');
   historyAdd.appendChild(deleteHistory);
      deleteHistory.addEventListener('click', ()=>{
     historyPanel.removeChild(historyAdd);
   })
 }
+
+window.addEventListener('DOMContentLoaded', storeData);
 
 historyBtn.addEventListener('click', ()=>{
   historyPanel.style.display = 'block';
