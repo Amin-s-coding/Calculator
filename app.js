@@ -28,7 +28,10 @@ function total() {
   secondScreen.textContent = result;
   const historyItem = document.createElement('div');
 historyItem.setAttribute('class', 'history-item');
-historyItemContainer.appendChild(historyItem);
+  historyItemContainer.appendChild(historyItem);
+  if (`${screen.value} = ${result}`.length > 25) {
+    historyItem.classList.add('history-item-short');
+  }
 historyItem.textContent = `${screen.value} = ${result}`;
 const deleteBtn = document.createElement('button');
 deleteBtn.setAttribute('class', 'delete-item');
