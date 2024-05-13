@@ -8,15 +8,15 @@ const equal = document.querySelector('.equal');
 const historyBtn = document.querySelector('.history-btn');
 const colosBtn = document.querySelector('.close-panel-btn');
 const historyPanel = document.querySelector('.history-panel');
-
+const historyItemContainer = document.querySelector('.history-item-container');
 
 getNumbers.map(e=>{
     e.addEventListener('click', ()=>{
-        screen.value += Number(e.textContent);
+        screen.value += e.textContent;
     });
 });
 
-operators.forEach(e=>{
+operators.map(e=>{
     e.addEventListener('click', ()=>{
         screen.value += e.textContent;
     })
@@ -26,26 +26,22 @@ operators.forEach(e=>{
 function total() {
   const result = eval(screen.value);
   secondScreen.textContent = result;
-  localStorage.setItem('store',`${screen.value} = ${secondScreen.textContent}`);
-  storeData()
+  const historyItem = document.createElement('div');
+historyItem.setAttribute('class', 'history-item');
+historyItemContainer.appendChild(historyItem);
+historyItem.textContent = `${screen.value} = ${result}`;
+const deleteBtn = document.createElement('button');
+deleteBtn.setAttribute('class', 'delete-item');
+const deleteIcon = document.createElement('span');
+deleteIcon.setAttribute('class', 'fa fa-trash-can');
+deleteBtn.appendChild(deleteIcon);
+historyItem.appendChild(deleteBtn)
+deleteBtn.addEventListener('click',()=>{
+  historyItemContainer.removeChild(historyItem);
+})
+};
 
-}
-function storeData() {
-  const historyAdd = document.createElement('div'); 
-  historyAdd.classList.add('history-item');
-  historyAdd.textContent = localStorage.getItem('store');
-  historyPanel.appendChild(historyAdd);
-  const deleteHistory = document.createElement('button');
-  deleteHistory.appendChild(document.createElement('span'));
-  deleteHistory.setAttribute('class','fas fa-times');
-  deleteHistory.classList.add('delete-item');
-  historyAdd.appendChild(deleteHistory);
-     deleteHistory.addEventListener('click', ()=>{
-    historyPanel.removeChild(historyAdd);
-  })
-}
-
-window.addEventListener('DOMContentLoaded', storeData);
+// window.addEventListener('DOMContentLoaded', loadItem);
 
 historyBtn.addEventListener('click', ()=>{
   historyPanel.style.display = 'block';
@@ -55,6 +51,7 @@ colosBtn.addEventListener('click', ()=>{
 })
 
 equal.addEventListener('click', total);
+
 
 
 clear.addEventListener('click', ()=>{
